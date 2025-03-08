@@ -1,0 +1,19 @@
+.customer_element{
+    margin-top: 5px;
+    display: flex;
+    padding:10px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    box-sizing: border-box;
+}
+.customer_info{
+    box-sizing: border-box;
+    flex-grow: 1;
+    .tel{
+        font-size: larger;
+        font-weight: 800;
+    }
+    .remarks{
+        color:rgb(70, 70, 70);
+    }
+}

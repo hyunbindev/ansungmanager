@@ -1,0 +1,51 @@
+#customer{
+    box-sizing: border-box;
+    width: 100%;
+    margin:15px;
+}
+
+
+
+#customer_header{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 10%;
+    h2{
+        margin:0px;
+    }
+    input{
+        font-size: large;
+        width: 45%;
+    }
+    box-sizing: border-box;
+}
+
+#customer_container{
+    height: 90%;
+    display: flex;
+}
+#customer_list{
+    width: 50%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow-y: scroll;
+}
+#customer_editor{
+    width: 50%;
+    height: 100%;
+}
+#info{
+    padding:20px;
+    #tel{
+        font-weight: 800;
+        font-size: x-large;
+    }
+    #address{
+        font-size: large;
+    }
+    #remarks{
+        font-size: large;
+        color: rgb(85, 85, 85);
+    }
+}

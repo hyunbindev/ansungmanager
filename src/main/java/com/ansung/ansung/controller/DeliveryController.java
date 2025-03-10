@@ -33,7 +33,7 @@ public class DeliveryController {
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 	@GetMapping
-	public ResponseEntity<List<PendingDeliveryDto>> getPendingDelivery(@RequestParam("isPending")boolean isPending){
+	public ResponseEntity<List<PendingDeliveryDto>> getPendingDelivery(@RequestParam(value ="isPending", defaultValue = "true")boolean isPending){
 		return new ResponseEntity<List<PendingDeliveryDto>>
 			(deliveryService.getDeliveryOrder(isPending),HttpStatus.OK);
 	}
@@ -43,7 +43,7 @@ public class DeliveryController {
 			(deliveryService.getPendingDeliveryDetail(deliveryId),HttpStatus.OK);
 	}
 	@PostMapping("/complete")
-	public ResponseEntity<Void> completeDeliveryOrder(@RequestParam("deliveryId")String deliveryId){
+	public ResponseEntity<Void> completeDeliveryOrder(@RequestParam(value ="deliveryId", required = true)String deliveryId){
 		deliveryService.completeDeliveryOrder(deliveryId);
 		fcmService.sendAllMessage("배달 완료", "배달 완료");
 		return new ResponseEntity<Void>(HttpStatus.OK);

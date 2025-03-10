@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ansung.ansung.constant.exception.CommonExceptionEnum;
 import com.ansung.ansung.constant.exception.DeliveryExceptionEnum;
+import com.ansung.ansung.controller.GeoCoderController;
 import com.ansung.ansung.data.DeliveryOrderDto;
 import com.ansung.ansung.data.ProductOrderDto;
 import com.ansung.ansung.data.response.PendingDeliveryDto;
@@ -24,13 +25,16 @@ import com.ansung.ansung.repository.ProductRepository;
 import com.ansung.ansung.service.firebase.FCMService;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class DeliveryService {
 	private final CustomerRepository customerRepository;
 	private final ProductRepository productRepository;
 	private final DeliveryRepository deliveryRepository;
+	private final DeliveryLogService deliveryLogService;
 	//배달 주문 추가
 	@Transactional
 	public PendingDeliveryDto addDeliveryOrder(DeliveryOrderDto dto) {
@@ -58,6 +62,7 @@ public class DeliveryService {
 		Delivery delivery = deliveryRepository.findById(deliveryId)
 				.orElseThrow(()->new DeliveryException(DeliveryExceptionEnum.NO_DELIVERY_ORDER));
 		delivery.complete();
+		deliveryLogService.logCompeleteDelivery(delivery);
 		deliveryRepository.save(delivery);
 	}
 	//배달 조회

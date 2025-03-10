@@ -10,6 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import com.ansung.ansung.constant.PayMethodEnum;
 
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,6 +18,8 @@ import lombok.NoArgsConstructor;
 @Document(collection = "salelog")
 @Getter
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class SaleLog {
 	@Id
 	private String id;

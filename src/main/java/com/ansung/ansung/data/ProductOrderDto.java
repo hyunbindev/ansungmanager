@@ -5,10 +5,14 @@ import java.util.List;
 
 import com.ansung.ansung.domain.order.ProductOrder;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class ProductOrderDto {
 	private Long productId;
@@ -18,6 +22,7 @@ public class ProductOrderDto {
 	private int quantity;
 	public static ProductOrderDto ProductOrderToDto(ProductOrder productOrder) {
 		return ProductOrderDto.builder()
+				.productId(productOrder.getProductId())
 				.productName(productOrder.getProductName())
 				.productSize(productOrder.getSize())
 				.productPrice(productOrder.getPrice())

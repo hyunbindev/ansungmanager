@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ansung.ansung.constant.exception.CommonExceptionEnum;
+import com.ansung.ansung.controller.CategoryController;
 import com.ansung.ansung.data.ProductOrderDto;
 import com.ansung.ansung.data.SaleLogDto;
 import com.ansung.ansung.domain.Product;
@@ -18,9 +19,11 @@ import com.ansung.ansung.repository.ProductRepository;
 import com.ansung.ansung.repository.SaleLogRepository;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class SaleLogService {
 	private final SaleLogRepository saleLogRepository;
 	private final ProductRepository productRepository;

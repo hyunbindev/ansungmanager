@@ -13,4 +13,7 @@ public class DeliveryException extends RuntimeException{
 	public HttpStatus getStatus() {
 		return this.exceptionEnum.getStatus();
 	}
+	public DeliveryExceptionEnum getExceptionEnum() {
+		return this.exceptionEnum;
+	}
 }

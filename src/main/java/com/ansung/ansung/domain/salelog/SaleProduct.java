@@ -6,12 +6,16 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Document(collection = "saleProduct")
 @Getter
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class SaleProduct {
 	@Id
 	private String id;

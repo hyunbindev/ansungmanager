@@ -3,6 +3,7 @@ package com.ansung.ansung.service.firebase;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.ansung.ansung.controller.CustomerController;
@@ -19,7 +20,8 @@ public class FirebaseInitialization {
 	@PostConstruct
 	public void initialize() {
 		try {
-			FileInputStream serviceAccout = new FileInputStream("./src/main/resources/firebase/ansungmanager-a4ed3-firebase-adminsdk-fbsvc-1062e2fae9.json");
+			
+			FileInputStream serviceAccout = new FileInputStream("./src/main/resources/firebase/ansungmanager-a4ed3-firebase-adminsdk-fbsvc-5d0a8af079.json");
 			FirebaseOptions options = new FirebaseOptions.Builder()
 					.setCredentials(GoogleCredentials.fromStream(serviceAccout))
 					.build();

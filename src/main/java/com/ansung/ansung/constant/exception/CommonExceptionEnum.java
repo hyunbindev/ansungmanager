@@ -11,6 +11,7 @@ public enum CommonExceptionEnum {
 	NO_CUSTOMER(HttpStatus.NO_CONTENT , "고객정보가 존재하지 않습니다"),
 	NO_CATEGORY(HttpStatus.NOT_FOUND,"분류가 존재하지 않습니다."),
 	NO_SALELOG(HttpStatus.NOT_FOUND,"판매기록이 존재하지 않습니다"),
+	NO_MANAGER(HttpStatus.UNAUTHORIZED,"관리자가 존재하지 않습니다"),
 	INTERNAL_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR,"내부 서버오류");
 	private final HttpStatus status;
 	private final String msg;

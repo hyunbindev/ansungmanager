@@ -10,6 +10,7 @@ build/
 .classpath
 .factorypath
 .project
+.json
 .settings
 .springBeans
 .sts4-cache
@@ -36,4 +37,5 @@ out/
 ### VS Code ###
 .vscode/
 
-/statics/firebase/
+/resources/firebase
+/src/main/resources/application.properties

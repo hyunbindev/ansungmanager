@@ -27,8 +27,8 @@ class SaleLogRepositoryTest {
 				.payMethod(PayMethodEnum.PAY_METHOD_CARD)
 				.build();
 		SaleLog log = testRepo.save(saleLog);
-		LocalDateTime from = LocalDateTime.of(2024, 3, 5, 14, 30, 45);
-		LocalDateTime to = LocalDateTime.of(2025, 3, 11, 14, 30, 45);
+		LocalDateTime from = LocalDate.now().minusDays(1).atStartOfDay();
+		LocalDateTime to = LocalDate.now().plusDays(1).atStartOfDay();
 		List<SaleLog> logs = testRepo.findBySaleDateBetween(from, to);
 		testRepo.delete(log);
 		assertThat(logs.size()).isEqualTo(1);

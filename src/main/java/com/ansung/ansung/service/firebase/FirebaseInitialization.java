@@ -1,11 +1,11 @@
 package com.ansung.ansung.service.firebase;
 
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
-import com.ansung.ansung.controller.CustomerController;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
@@ -19,7 +19,7 @@ public class FirebaseInitialization {
 	@PostConstruct
 	public void initialize() {
 		try {
-			FileInputStream serviceAccout = new FileInputStream("./src/main/resources/firebase/ansungmanager-a4ed3-firebase-adminsdk-fbsvc-1062e2fae9.json");
+			InputStream serviceAccout = new ClassPathResource("firebase/ansungmanager-a4ed3-firebase-adminsdk-fbsvc-5d0a8af079.json").getInputStream();
 			FirebaseOptions options = new FirebaseOptions.Builder()
 					.setCredentials(GoogleCredentials.fromStream(serviceAccout))
 					.build();

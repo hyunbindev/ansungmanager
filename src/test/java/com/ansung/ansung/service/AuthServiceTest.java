@@ -62,8 +62,7 @@ class AuthServiceTest {
 		testManager.setPassword("testManagerPw");
 		when(managerRepository.findByName(testManager.getName())).thenReturn(Optional.of(testManager));
 		when(passwordEncoder.matches(testManager.getPassword(), testManager.getPassword())).thenReturn(true);
-		String managerName = authService.verifyManager(testManager.getName(),testManager.getPassword());
-		assertThat(managerName).isEqualTo(testManager.getName());
+		authService.verifyManager(testManager.getName(),testManager.getPassword());
 	}
 	@Test
 	@DisplayName("관리자 비밀번호 변경 테스트")

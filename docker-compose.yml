@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ansungmanager
+      MONGO_INITDB_ROOT_PASSWORD: 153847c
+    volumes:
+      - mongodb_data:/data/db
+  mysql:
+    image: mysql:8
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 122a32x817
+      MYSQL_DATABASE: ansungdb
+      MYSQL_USER: ansungmanager
+      MYSQL_PASSWORD: 2Z4812S98@
+    ports:
+     - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  app:
+    build: .
+    container_name: spring-app
+    restart: always
+    ports:
+      - "80:8080"
+    depends_on:
+      - mongodb
+      - mysql
+    environment:
+      SPRING_DATA_MONGODB_URI: mongodb://ansungmanager:153847c@mongodb:27017/ansungmanager?authSource=admin
+      SPRING_DATA_SOURCE_URL: jdbc:mysql://mysql:3306/ansungdb
+      SPRING_DATASOURCE_USERNAME: ansungmanager
+      SPRING_DATASOURCE_PASSWORD: 2Z4812S98@
+
+volumes:
+  mongodb_data:
+  mysql_data:

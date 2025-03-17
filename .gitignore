@@ -36,5 +36,6 @@ out/
 
 ### VS Code ###
 .vscode/
+
 /resources/firebase
 /src/main/resources/application.properties

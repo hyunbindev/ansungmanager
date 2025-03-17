@@ -1,2 +1,2 @@
 # ansungmanager
-ansung manager Erp
+ansung manager
